@@ -5,10 +5,23 @@
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
                 <h1>Students List</h1>
-                <a href="StudentDetails.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Student</a>
+                <a href="StudentDetails.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>Add Student</a>
+
+                <div>
+                    <label for="PageSizeDropDownList">Records per page: </label>
+                    <asp:DropDownList ID="PageSizeDropDownList" runat="server"
+                        AutoPostBack="false" CssClass="btn btn-default btn-sm dropdown-toggle"
+                        OnSelectedIndexChanged="PageSizeDropDownList_SelectedIndexChanged">
+                        <asp:ListItem Text="3" Value="3" />
+                        <asp:ListItem Text="5" Value="5" />
+                        <asp:ListItem Text="10" Value="10" />
+                        <asp:ListItem Text="All" Value="10000"/>
+                    </asp:DropDownList>
+                </div>
+
                 <asp:GridView runat="server" ID="StudentsGridView" AutoGenerateColumns="false"
                     CssClass="table table-striped table-bordered table-hover"
-                    DataKeyNames="StudentID" OnRowDeleting="StudentsGridView_RowDeleting" 
+                    DataKeyNames="StudentID" OnRowDeleting="StudentsGridView_RowDeleting"
                     AllowPaging="true" PageSize="3" OnPageIndexChanging="StudentsGridView_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="StudentID" HeaderText="Student ID" Visible="true" />
@@ -16,7 +29,7 @@
                         <asp:BoundField DataField="FirstMidName" HeaderText="First Name" Visible="true" />
                         <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" Visible="true"
                             DataFormatString="{0:MMM dd, yyyy}" />
-                        <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" 
+                        <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete"
                             ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>
                 </asp:GridView>

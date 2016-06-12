@@ -96,5 +96,14 @@ namespace COMP2007_Week5
             //Refresh grid
             this.GetStudents();
         }
+
+        protected void PageSizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Set new page size
+            StudentsGridView.PageSize = Convert.ToInt32(PageSizeDropDownList.SelectedValue);
+
+            //Refresh grid
+            this.GetStudents();
+        }
     }
 }
