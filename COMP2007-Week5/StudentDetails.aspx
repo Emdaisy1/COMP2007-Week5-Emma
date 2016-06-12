@@ -17,7 +17,10 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="EnrollmentDateTextBox">Enrollment Date</label>
-                    <asp:TextBox runat="server" CssClass="form-control" id="EnrollmentDateTextBox" placeholder="Enrollement Date" required="true" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="form-control" id="EnrollmentDateTextBox" placeholder="Enrollement Date format: mm/dd/yyyy" required="true" TextMode="Date"></asp:TextBox>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Invalid Date! Format: mm/dd/yyyy"
+                        ControlToValidate="EnrollmentDateTextBox" MinimumValue="2000/01/01" MaximumValue="2999/01/01"
+                        Type="Date" Display="Dynamic" BackColor="Red" ForeColor="White" Font-Size="Large"></asp:RangeValidator>
                 </div>
                 <div class="text-right">
                     <asp:Button Text="Cancel" ID="CancelButton" runat="server" CssClass="btn btn-warning btn-lg" UseSubmitBehavior="false" CausesValidation="false" OnClick="CancelButton_Click" />

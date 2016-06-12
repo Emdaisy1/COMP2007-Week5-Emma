@@ -23,13 +23,17 @@
                     CssClass="table table-striped table-bordered table-hover"
                     DataKeyNames="StudentID" OnRowDeleting="StudentsGridView_RowDeleting"
                     AllowPaging="true" PageSize="3" OnPageIndexChanging="StudentsGridView_PageIndexChanging"
-                    AllowSorting="true" OnSorting="StudentsGridView_Sorting" OnRowDataBound="StudentsGridView_RowDataBound" >
+                    AllowSorting="true" OnSorting="StudentsGridView_Sorting" OnRowDataBound="StudentsGridView_RowDataBound"
+                    PagerStyle-CssClass="pagination-ys" >
                     <Columns>
                         <asp:BoundField DataField="StudentID" HeaderText="Student ID" Visible="true" SortExpression="StudentID" />
                         <asp:BoundField DataField="LastName" HeaderText="Last Name" Visible="true" SortExpression="LastName" />
                         <asp:BoundField DataField="FirstMidName" HeaderText="First Name" Visible="true" SortExpression="FirstMidName" />
                         <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" Visible="true"
                             DataFormatString="{0:MMM dd, yyyy}" SortExpression="EnrollmentDate" />
+                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i>Edit"
+                            NavigateUrl="~/StudentDetails.aspx" ControlStyle-CssClass="btn btn-primary btn-sm" runat="server"
+                            DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?StudentID={0}" />
                         <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete"
                             ShowDeleteButton="true" ButtonType="Link" ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>
