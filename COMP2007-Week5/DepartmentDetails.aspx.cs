@@ -68,7 +68,7 @@ namespace COMP2007_Week5
                 }
 
                 newDepartment.Name = NameTextBox.Text;
-                newDepartment.Budget = Convert.ToInt32(BudgetTextBox.Text);
+                newDepartment.Budget = Convert.ToDecimal(BudgetTextBox.Text);
 
                 //Only add if new student
                 if (DepartmentID == 0)
